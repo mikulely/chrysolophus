@@ -1,0 +1,64 @@
+* Intro
+
+chrysolophus 的目标是一个招标信息的聚合系统,现在只完成了特定网站招标信
+息的爬取，并将信息按照时间顺序导出成 HTML。
+
+* Setup
+
+#+BEGIN_EXAMPLE
+$ pip install scrapy jinja2
+#+END_EXAMPLE
+
+* Howto
+
+** crawl and render to html
+
+#+BEGIN_EXAMPLE
+$ export CHRYSOLOPHUS_PROJECT_ROOT_DIR='/Users/mikulely/chrysolophus' &&
+python $CHRYSOLOPHUS_PROJECT_ROOT_DIR/src/run.py
+#+END_EXAMPLE
+
+** start web server
+
+#+BEGIN_EXAMPLE
+$ export CHRYSOLOPHUS_PROJECT_ROOT_DIR='/Users/mikulely/chrysolophus' && python
+$CHRYSOLOPHUS_PROJECT_ROOT_DIR/src/app.py
+#+END_EXAMPLE
+
+* RoadMap
+
+接下来可能需要实现的功能:
+
+- [ ] 完成当月招标公告在首页的展示
+- [ ] 完成标题的自然语言处理,直接处理页面里的所有链接，而不是对每个爬
+  虫手动定义 xpath(Issue 1)
+- [ ]添加新的信息源(Issue 2, 3)
+
+* 爬虫
+
+目前对于静态页面处理的可以，看下 follow 规则，怎么爬动态生成的页面。
+
+* Issues
+
+** 1. 处理招标信息在正文中的情况
+
+对于不包含关键字的公告信息，抓取其内容进行分析。
+
+像 ~博乐市政府采购公告 BLCG(TP)2013-01~ 这种需要对正文做分析了。
+
+** 2. 处理动态页面
+
+** 3. 对链接文本做自然语言分析
+
+分析标题，精确判断出招标/废标类型，需要的产品类型，以及具体的单位。
+
+1. 分词 (哪里 什么项目项目 公告类型)
+2. 分析
+
+* Bebug
+
+** 单独执行某个爬虫
+
+#+BEGIN_EXAMPLE
+scrapy crawl spider_name -t csv -o s.csv
+#+END_EXAMPLE
