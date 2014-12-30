@@ -34,9 +34,6 @@ $CHRYSOLOPHUS_PROJECT_ROOT_DIR/src/app.py
   虫手动定义 xpath(Issue 1)
 - [ ]添加新的信息源(Issue 2, 3)
 
-* 爬虫
-
-目前对于静态页面处理的可以，看下 follow 规则，怎么爬动态生成的页面。
 
 * Issues
 
@@ -55,7 +52,7 @@ $CHRYSOLOPHUS_PROJECT_ROOT_DIR/src/app.py
 1. 分词 (哪里 什么项目项目 公告类型)
 2. 分析
 
-* Bebug
+* Debug
 
 ** 单独执行某个爬虫
 
